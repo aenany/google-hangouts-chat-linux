@@ -1,22 +1,22 @@
-const { app, BrowserWindow } = require('electron');
+const { app } = require('electron');
 let mainWindow;
+let WrappedWindow = require('./wrappedWindow');
 
 const createWindow = () => {
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-  });
+	mainWindow = WrappedWindow({
+		name: 'Google Hangouts Chat',
+		url: 'https://chat.google.com/',
+		openLocally: false
+	});
 
-  mainWindow.loadURL(`file://${__dirname}/index.html`);
-
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
+	mainWindow.on('closed', () => {
+		mainWindow = null;
+	});
 };
 
 app.on('ready', createWindow);
 app.on('activate', () => {
-  if (mainWindow === null) {
-    createWindow();
-  }
+	if (mainWindow === null) {
+		createWindow();
+	}
 });
