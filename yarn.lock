@@ -788,13 +788,6 @@ electron-rebuild@^1.6.0:
     spawn-rx "^3.0.0"
     yargs "^13.2.2"
 
-electron-squirrel-startup@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/electron-squirrel-startup/-/electron-squirrel-startup-1.0.0.tgz#19b4e55933fa0ef8f556784b9c660f772546a0b8"
-  integrity sha1-GbTlWTP6Dvj1VnhLnGYPdyVGoLg=
-  dependencies:
-    debug "^2.2.0"
-
 electron-winstaller@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/electron-winstaller/-/electron-winstaller-3.0.4.tgz#29294e323499147ecc8f47d6d2befd6e4ab9ba8c"
@@ -808,10 +801,10 @@ electron-winstaller@^3.0.4:
     pify "^4.0.1"
     temp "^0.9.0"
 
-electron@5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-5.0.3.tgz#919818962caffbd909af15bc8a3034be972fa76e"
-  integrity sha512-kgnxPQoTNzu0lKC8ToAktt93mTimgqHZGFCVmTaFjs1G2Bk9VqKHljbQemH+REKAaw1aEgIRn2JCrTe0Dy7fVQ==
+electron@4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-4.2.2.tgz#e8720e68b2ef3dcf4ab721f9546cf436e08576d2"
+  integrity sha512-SNRr83kbsnNZU9AdYkAJZEW7UH9Q9Fvl0ynuKBXgFFulTX+Gkw5JATl2Tt4OQIKdCGUuBDaw+MEMXlaroNpceA==
   dependencies:
     "@types/node" "^10.12.18"
     electron-download "^4.1.0"
