@@ -2,13 +2,6 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.3.4":
-  version "7.4.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
-  integrity sha512-TuI4qpWZP6lGOGIuGWtp9sPluqYICmbk8T/1vpSysqJxRPkudh/ofFWyqdcMsDf2s7KvDL4/YHgKyvcS3g9CJQ==
-  dependencies:
-    regenerator-runtime "^0.13.2"
-
 "@electron-forge/async-ora@6.0.0-beta.39":
   version "6.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/@electron-forge/async-ora/-/async-ora-6.0.0-beta.39.tgz#f065a157cdc62efb391feaf43c795c69c163a281"
@@ -167,28 +160,6 @@
     "@electron-forge/shared-types" "6.0.0-beta.39"
   optionalDependencies:
     electron-installer-redhat "^1.1.0"
-
-"@electron-forge/maker-squirrel@6.0.0-beta.39":
-  version "6.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@electron-forge/maker-squirrel/-/maker-squirrel-6.0.0-beta.39.tgz#931cb083595a55a97a1c926d347177c2c1ecc048"
-  integrity sha512-sDx7PKzf+pND3mAQoQ9D0ikkIhxEAr+bFHhi5QFXK55Y1QExKzAFja+3dLKVNwDmmvLcy1BNp/g9f4F7sNCHww==
-  dependencies:
-    "@electron-forge/maker-base" "6.0.0-beta.39"
-    "@electron-forge/shared-types" "6.0.0-beta.39"
-    fs-extra "^7.0.0"
-  optionalDependencies:
-    electron-winstaller "^3.0.4"
-
-"@electron-forge/maker-zip@6.0.0-beta.39":
-  version "6.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@electron-forge/maker-zip/-/maker-zip-6.0.0-beta.39.tgz#97276b00716015a4adc82602db69e89ef31239cc"
-  integrity sha512-NQ5M6Z2mxlRAbgu/V9BWAjKaow0fYtr9ml3sMfwtidxk8vPYY/KeW/UyT3Uf6Abj7sv8itfHeAyfprvyF4a9dg==
-  dependencies:
-    "@electron-forge/maker-base" "6.0.0-beta.39"
-    "@electron-forge/shared-types" "6.0.0-beta.39"
-    cross-zip "^2.1.5"
-    fs-extra "^7.0.0"
-    pify "^4.0.0"
 
 "@electron-forge/plugin-base@6.0.0-beta.39":
   version "6.0.0-beta.39"
@@ -585,13 +556,6 @@ cross-spawn@^6.0.0:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
-cross-zip@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/cross-zip/-/cross-zip-2.1.5.tgz#c5d1a06a4b1a12a033064f946eb5ae6d4bdcf3e1"
-  integrity sha1-xdGgaksaEqAzBk+UbrWubUvc8+E=
-  dependencies:
-    rimraf "^2.5.2"
-
 crypto@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/crypto/-/crypto-1.0.1.tgz#2af1b7cad8175d24c8a1b0778255794a21803037"
@@ -829,19 +793,6 @@ electron-rebuild@^1.6.0:
     ora "^3.4.0"
     spawn-rx "^3.0.0"
     yargs "^13.2.2"
-
-electron-winstaller@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/electron-winstaller/-/electron-winstaller-3.0.4.tgz#29294e323499147ecc8f47d6d2befd6e4ab9ba8c"
-  integrity sha512-u3wTQUzBBBGWbExkKvgKt69EMoF0xC8uLQS5vTXtwr97BH8ffSW8CcHvVGWRyRDIhg2AA+togKOKWr41wgCeiA==
-  dependencies:
-    "@babel/runtime" "^7.3.4"
-    asar "^1.0.0"
-    debug "^4.1.1"
-    fs-extra "^7.0.1"
-    lodash.template "^4.2.2"
-    pify "^4.0.1"
-    temp "^0.9.0"
 
 electron@5.0.3:
   version "5.0.3"
@@ -1476,7 +1427,7 @@ lodash.merge@^4.6.0:
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
   integrity sha512-AOYza4+Hf5z1/0Hztxpm2/xiPZgi/cjMqdnKTUWTBSKchJlxXXuUSxCCl8rJlf4g6yww/j6mA8nC8Hw/EZWxKQ==
 
-lodash.template@^4.2.2, lodash.template@^4.4.0:
+lodash.template@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.4.0.tgz#e73a0385c8355591746e020b99679c690e68fba0"
   integrity sha1-5zoDhcg1VZF0bgILmWecaQ5o+6A=
@@ -2140,11 +2091,6 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-regenerator-runtime@^0.13.2:
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.2.tgz#32e59c9a6fb9b1a4aff09b4930ca2d4477343447"
-  integrity sha512-S/TQAZJO+D3m9xeN1WTI8dLKBBiRgXBlTJvbWjCThHWZj9EvHK70Ff50/tYj2J/fvBY6JtFVwRuazHN2E7M9BA==
-
 repeating@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/repeating/-/repeating-2.0.1.tgz#5214c53a926d3552707527fbab415dbc08d06dda"
@@ -2218,7 +2164,7 @@ restore-cursor@^2.0.0:
     onetime "^2.0.0"
     signal-exit "^3.0.2"
 
-rimraf@2, rimraf@^2.5.2, rimraf@^2.6.3, rimraf@~2.6.2:
+rimraf@2, rimraf@^2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.3.tgz#b2d104fe0d8fb27cf9e0a1cda8262dd3833c6cab"
   integrity sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==
@@ -2501,13 +2447,6 @@ tar@^4.4.8:
     mkdirp "^0.5.0"
     safe-buffer "^5.1.2"
     yallist "^3.0.3"
-
-temp@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/temp/-/temp-0.9.0.tgz#61391795a11bd9738d4c4d7f55f012cb8f55edaa"
-  integrity sha512-YfUhPQCJoNQE5N+FJQcdPz63O3x3sdT4Xju69Gj4iZe0lBKOtnAMi0SLj9xKhGkcGhsxThvTJ/usxtFPo438zQ==
-  dependencies:
-    rimraf "~2.6.2"
 
 throttleit@0.0.2:
   version "0.0.2"
