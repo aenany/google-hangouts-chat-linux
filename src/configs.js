@@ -4,7 +4,7 @@ const path = require("path");
 const crypto = require("crypto");
 
 const configFilename = "config.json";
-const configPath = path.join(app.getPath("appData"), configFilename);
+// const configPath = path.join(app.getPath("appData"), configFilename);
 
 const generateHash = (contents) => {
 	const sha = crypto.createHash("sha256");

@@ -1,31 +1,6 @@
 const {Tray, Menu} = require("electron");
+const pathsManifest = require("./paths");
 let mainWindow;
-
-const initializeTray = (windowObj) => {
-	const systemTrayIcon = new Tray();
-	mainWindow = windowObj;
-
-	const template = [{
-		"label": "Show",
-		"click": () => {
-			onShowEntryClicked();
-		},
-		"label": "Hide",
-		"click": () => {
-			onHideEntryClicked();
-		},
-		"label": "Quit",
-		"click": () => {
-			onQuitEntryClicked();
-		},
-	}]
-
-	const contextMenu = Menu.buildFromTemplate(template);
-	systemTrayIcon.setContextMenu(contextMenu);
-	systemTrayIcon.on("click", () => {
-		onSystemTrayIconClicked();
-	});
-}
 
 const onShowEntryClicked = () => {
 	mainWindow.show();
@@ -47,4 +22,36 @@ const onSystemTrayIconClicked = () => {
 	}
 }
 
-module.exports = initializeTray;
+const initializeTray = (windowObj) => {
+	const systemTrayIcon = new Tray(pathsManifest.iconPath);
+	mainWindow = windowObj;
+
+	const template = [{
+		"label": "Show",
+		"click": () => {
+			onShowEntryClicked();
+		},
+		"label": "Hide",
+		"click": () => {
+			onHideEntryClicked();
+		},
+		"label": "Quit",
+		"click": () => {
+			onQuitEntryClicked();
+		},
+	}]
+
+	const contextMenu = Menu.buildFromTemplate(template);
+	systemTrayIcon.setContextMenu(contextMenu);
+	systemTrayIcon.setToolTip('Google Hangouts Chat for Linux (Unofficial)');
+
+	systemTrayIcon.on("click", () => {
+		onSystemTrayIconClicked();
+	});
+
+	return systemTrayIcon;
+}
+
+module.exports = {
+	initializeTray: initializeTray
+};

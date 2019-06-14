@@ -32,3 +32,8 @@ const registerKeyboardShortcuts = (windowObj) => {
 		goBack();
 	});
 };
+
+
+module.exports = {
+	"registerKeyboardShortcuts": registerKeyboardShortcuts
+}

@@ -20,3 +20,5 @@ const handleRedirect = (event, url) => {
 		e.preventDefault();
 	}
 };
+
+module.exports = handleRedirect;
