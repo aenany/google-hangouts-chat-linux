@@ -1,4 +1,5 @@
 const {BrowserWindow} = require("electron");
+const pathsManifest = require('./paths');
 let mainWindow;
 
 const getBrowserWindowOptions = () => {
@@ -7,7 +8,8 @@ const getBrowserWindowOptions = () => {
 		"web-preferences": {
 			"node-integration": false
 		},
-		// "icon": null tbd
+		"show": false,
+		"icon": pathsManifest.iconPath
 	}
 }
 
@@ -25,6 +27,10 @@ const initializeWindow = () => {
 	mainWindow = new BrowserWindow(bwOptions);
 	mainWindow.setMenu(null);
 	mainWindow.loadURL(extraOptions.url);
+
+	mainWindow.once('ready-to-show', () => {
+		mainWindow.show()
+	})
 
 	return mainWindow;
 }

@@ -33,7 +33,6 @@ const registerKeyboardShortcuts = (windowObj) => {
 	});
 };
 
-
 module.exports = {
 	"registerKeyboardShortcuts": registerKeyboardShortcuts
 }
