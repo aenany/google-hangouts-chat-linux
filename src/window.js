@@ -4,12 +4,14 @@ let mainWindow;
 
 const getBrowserWindowOptions = () => {
 	return {
-		"auto-hide-menu-bar": true,
-		"web-preferences": {
+		"title": process.title,
+		"autoHideMenuBar": true,
+		"webPreferences": {
 			"node-integration": false
 		},
 		"show": false,
-		"icon": pathsManifest.iconPath
+		"backgroundColor": "#262727",
+		"icon": pathsManifest.iconPath,
 	}
 }
 

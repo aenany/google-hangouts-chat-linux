@@ -23,23 +23,42 @@ const onSystemTrayIconClicked = () => {
 }
 
 const initializeTray = (windowObj) => {
+	// tray = new Tray(pathsManifest.iconPath)
+	// const contextMenu = Menu.buildFromTemplate([
+	//   { label: 'Item1', type: 'radio' },
+	//   { label: 'Item2', type: 'radio' },
+	//   { label: 'Item3', type: 'radio', checked: true },
+	//   { label: 'Item4', type: 'radio' }
+	// ])
+	// tray.setToolTip('This is my application.')
+	// tray.setContextMenu(contextMenu)
+	// return tray;
+
 	const systemTrayIcon = new Tray(pathsManifest.iconPath);
 	mainWindow = windowObj;
 
-	const template = [{
-		"label": "Show",
-		"click": () => {
-			onShowEntryClicked();
+	const template = [
+		{
+			"label": "Show",
+			"role": "unhide",
+			"click": () => {
+				onShowEntryClicked();
+			},
+		}, {
+			"label": "Hide",
+			"role": "hide",
+			"click": () => {
+				onHideEntryClicked();
+			},
 		},
-		"label": "Hide",
-		"click": () => {
-			onHideEntryClicked();
-		},
-		"label": "Quit",
-		"click": () => {
-			onQuitEntryClicked();
-		},
-	}]
+		{
+			"label": "Quit",
+			"role": "quit",
+			"click": () => {
+				onQuitEntryClicked();
+			}
+		}
+	]
 
 	const contextMenu = Menu.buildFromTemplate(template);
 	systemTrayIcon.setContextMenu(contextMenu);
