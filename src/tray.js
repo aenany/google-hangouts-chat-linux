@@ -23,17 +23,6 @@ const onSystemTrayIconClicked = () => {
 }
 
 const initializeTray = (windowObj) => {
-	// tray = new Tray(pathsManifest.iconPath)
-	// const contextMenu = Menu.buildFromTemplate([
-	//   { label: 'Item1', type: 'radio' },
-	//   { label: 'Item2', type: 'radio' },
-	//   { label: 'Item3', type: 'radio', checked: true },
-	//   { label: 'Item4', type: 'radio' }
-	// ])
-	// tray.setToolTip('This is my application.')
-	// tray.setContextMenu(contextMenu)
-	// return tray;
-
 	const systemTrayIcon = new Tray(pathsManifest.iconPath);
 	mainWindow = windowObj;
 
