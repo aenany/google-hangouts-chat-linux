@@ -2,7 +2,6 @@ const {app} = require('electron');
 const WindowManager = require('./window');
 const TrayManager = require('./tray');
 const KeyboardManager = require('./keyboard');
-const UrlHandler = require('./urls');
 const applicationVersion = require('./../package.json').version;
 let mainWindow, systemTrayIcon;
 
@@ -21,14 +20,6 @@ const initialize = () => {
 
 	KeyboardManager.registerKeyboardShortcuts(mainWindow);
 	
-	mainWindow.webContents.on('will-navigate', (event, url) => {
-		UrlHandler.handleRedirect(event, url, mainWindow);
-	});
-
-	mainWindow.webContents.on('new-window', (event, url) => {
-		UrlHandler.handleRedirect(event, url, mainWindow);
-	});
-
 };
 
 app.on("ready", initialize);
