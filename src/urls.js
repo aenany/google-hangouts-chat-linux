@@ -11,14 +11,15 @@ const extractDomain = (url) => {
 	return domain;
 }
 
-const handleRedirect = (event, url) => {	
+const handleRedirect = (event, url, windowObject) => {	
 	let domain = extractDomain(url);
 
-	if (!wrappedWindowOptions.openLocally && 
-		domain !== extractDomain(window.webContents.getURL()) && internalUrlWhitelist.includes(domain) === false) {
+	if (domain !== extractDomain(windowObject.webContents.getURL()) && internalUrlWhitelist.includes(domain) === false) {
 		require("electron").shell.openExternal(url);
-		e.preventDefault();
+		event.preventDefault();
 	}
 };
 
-module.exports = handleRedirect;
+module.exports = {
+	handleRedirect: handleRedirect
+};
