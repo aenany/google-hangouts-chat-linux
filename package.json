@@ -1,7 +1,7 @@
 {
 	"name": "google-chat-linux",
 	"productName": "google-chat-linux",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Google Chat client for Linux.",
 	"main": "src/index.js",
 	"scripts": {
