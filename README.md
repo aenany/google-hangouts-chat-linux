@@ -6,10 +6,10 @@ This project supports Linux clients for [Google Hangouts Chat for Teams](https:/
 
 ## Features
 
-* Ability to toggle "Dark Mode", which inverts the colors in the application for easy reading at night.
-* Persistent login sessions.
-* User configurations to remember the sizing and position of the application window upon restart (wip)
-* Remember preference for Dark Mode.
+* Ability to toggle "Dark Mode", which inverts the colors in the application for easy reading at night
+* Persistent login sessions
+* Remember size and position of the application window upon restart (wip)
+* Remember preference for Dark Mode (wip)
 * Support for major Linux distributions (wip)
 
 ## Getting Started
@@ -21,9 +21,9 @@ For development, clone the repository and follow the rest of the instructions. F
 You will need:
 
 ```
-Node.js v12+
-Yarn 1.16+
-ESLint v6+
+Node.js v12.4.0+
+Yarn v1.16+
+ESLint v6.0.0+
 ```
 
 ### Installing
@@ -82,5 +82,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Inspired by the original project at https://github.com/robyf/google-chat-linux
-* This awesome stackoverflow response for dark mode: https://stackoverflow.com/questions/4766201/javascript-invert-color-on-all-elements-of-a-page
-* The actual development of the application by [Google LLC](https://about.google/intl/).
+* [This awesome stackoverflow response for dark mode](https://stackoverflow.com/questions/4766201/javascript-invert-color-on-all-elements-of-a-page)
+* The actual development of the application by [Google LLC](https://about.google/intl/en).
