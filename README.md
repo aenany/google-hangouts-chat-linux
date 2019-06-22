@@ -63,7 +63,7 @@ TBD. -->
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/aenany/google-hangouts-chat-linux/CONTRIBUTING.md) for the process for submitting pull requests to the project.
+Please read [CONTRIBUTING.md](https://github.com/aenany/google-hangouts-chat-linux/blob/master/CONTRIBUTING.md) for the process for submitting pull requests to the project.
 
 ## Versioning
 
