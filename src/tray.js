@@ -47,7 +47,7 @@ const initializeTray = (windowObj) => {
 			},
 		},
 		{
-			"label": "Invert",
+			"label": "Toggle Dark Mode",
 			"role": "unhide",
 			"click": () => {
 				onInvertEntryClicked(mainWindow);

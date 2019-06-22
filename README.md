@@ -2,4 +2,85 @@
 
 # Unofficial Google Hangouts Chat client for Linux
 
-Work in progress.
+This project supports Linux clients for [Google Hangouts Chat for Teams](https://gsuite.google.com/products/chat/). Contributions are welcome, this is a project maintained to learn more about Electron, and to hopefully provide something of use to Linux users of Google Hangouts.
+
+## Features
+
+* Ability to toggle "Dark Mode", which inverts the colors in the application for easy reading at night.
+* Persistent login sessions.
+* User configurations to remember the sizing and position of the application window upon restart (wip)
+* Remember preference for Dark Mode.
+* Support for major Linux distributions (wip)
+
+## Getting Started
+
+For development, clone the repository and follow the rest of the instructions. For general usage, see the [GitHub Releases](https://github.com/aenany/google-hangouts-chat-linux/releases) page.
+
+### Prerequisites
+
+You will need:
+
+```
+Node.js v12+
+Yarn 1.16+
+ESLint v6+
+```
+
+### Installing
+
+Install Node.js modules by navigating to the root of the repository and running:
+
+```
+yarn
+```
+
+Once modules are installed, please run:
+
+```
+yarn start
+```
+
+A separate window should spawn, prompting a login screen to Google Hangouts, provide your Google credentials to start using Hangouts Chat.
+
+<!-- 
+## Running the tests
+
+TBD.
+
+## Deployment
+
+TBD. -->
+
+## Built With
+
+* [Node.js](https://nodejs.org) - JavaScript runtime environment
+* [Yarn](https://yarnpkg.com/en/) - Fast, reliable, and secure dependency management for Node.js
+* [Electron](https://electronjs.org/) - Desktop application framework for Node.js
+* [Babel](https://babeljs.io/) - The compiler for next generation JavaScript
+* [electron-builder](https://www.electron.build/) - Packager and distribution framework for Electron
+* [electron-localshortcut](https://www.npmjs.com/package/electron-localshortcut) - Register keyboard shortcuts with Electron
+* [electron-context-menu](https://www.npmjs.com/package/electron-localshortcut) - Register keyboard shortcuts with Electron
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://github.com/aenany/google-hangouts-chat-linux/CONTRIBUTING.md) for the process for submitting pull requests to the project.
+
+## Versioning
+
+This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/aenany/google-hangouts-chat-linux/project/tags). 
+
+## Authors
+
+* **A Enany** - *Initial work* - [aenany](https://github.com/aenany)
+
+See also the list of [contributors](https://github.com/aenany/google-hangouts-chat-linux/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Inspired by the original project at https://github.com/robyf/google-chat-linux
+* This awesome stackoverflow response for dark mode: https://stackoverflow.com/questions/4766201/javascript-invert-color-on-all-elements-of-a-page
+* The actual development of the application by [Google LLC](https://about.google/intl/).

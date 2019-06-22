@@ -5,7 +5,7 @@ let mainWindow;
 const getBrowserWindowOptions = () => {
 	return {
 		"title": process.title,
-		// "autoHideMenuBar": true,
+		"autoHideMenuBar": true,
 		"webPreferences": {
 			"node-integration": false
 		},
