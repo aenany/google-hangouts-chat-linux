@@ -1,31 +1,22 @@
 const {app} = require("electron");
-const fs = require("fs").promises;
+const fs = require("fs");
 const path = require("path");
-const crypto = require("crypto");
 
-const configFilename = "config.json";
-// const configPath = path.join(app.getPath("appData"), configFilename);
+const configFilename = "google-hangouts-chat-linux.json";
+const configPath = path.join(app.getPath("appData"), configFilename);
 
-const generateHash = (contents) => {
-	const sha = crypto.createHash("sha256");
-	sha.update(contents);
-	sha.digest(hex);
-	return sha;
-}
-
-const loadConfigs = async () => {
-	let configs;
+const loadConfigs = () => {
 	try {
-		configs = await fs.readFile(configPath, "utf-8");
+		return JSON.parse(fs.readFileSync(configPath, "utf8"));
 	} catch (e) {
 		console.error(e);
 		return null;
 	}
 }
 
-const saveConfigs = async (configData) => {
+const saveConfigs = (configData) => {
 	try {
-		await fs.writeFile(configPath, JSON.stringify(configData));
+		fs.writeFileSync(configPath, JSON.stringify(configData), 'utf8');
 	} catch (e) {
 		console.error(e);
 		return;

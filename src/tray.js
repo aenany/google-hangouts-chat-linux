@@ -3,7 +3,6 @@ const pathsManifest = require("./paths");
 const invertColor = require('./colors');
 let mainWindow;
 
-
 const onShowEntryClicked = () => {
 	mainWindow.show();
 }
@@ -21,11 +20,7 @@ const onInvertEntryClicked = (mainWindow) => {
 }
 
 const onSystemTrayIconClicked = () => {
-	if(mainWindow.isMinimized()) {
-		mainWindow.show();
-	} else {
-		mainWindow.focus();
-	}
+	(mainWindow.isMinimized()) ? mainWindow.show() : mainWindow.focus();
 }
 
 const initializeTray = (windowObj) => {
@@ -64,7 +59,8 @@ const initializeTray = (windowObj) => {
 
 	const contextMenu = Menu.buildFromTemplate(template);
 	systemTrayIcon.setContextMenu(contextMenu);
-	systemTrayIcon.setToolTip('Google Hangouts Chat for Linux (Unofficial)');
+	systemTrayIcon.setToolTip(process.title);
+	systemTrayIcon.setTitle(process.title);
 
 	systemTrayIcon.on("click", () => {
 		onSystemTrayIconClicked();

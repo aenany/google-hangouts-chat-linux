@@ -2,26 +2,33 @@ const {app} = require('electron');
 const WindowManager = require('./window');
 const TrayManager = require('./tray');
 const KeyboardManager = require('./keyboard');
+const ConfigManager = require('./configs');
 const applicationVersion = require('./../package.json').version;
-let mainWindow, systemTrayIcon;
+let mainWindow, systemTrayIcon, config;
 
 process.title = 'Google Hangouts Chat for Linux (Unofficial)';
 console.log(process.title + ' - v' + applicationVersion);
 console.log('Node.js runtime version:', process.version);
 
 const initialize = () => {
+	config = ConfigManager.loadConfigs();
+	
 	if(!mainWindow) {
-		mainWindow = WindowManager.initializeWindow();
+		mainWindow = WindowManager.initializeWindow(config);
 	}
 
 	if(!systemTrayIcon) {
-		systemTrayIcon = TrayManager.initializeTray(mainWindow);
+		systemTrayIcon = TrayManager.initializeTray(mainWindow, config);
 	}
 
 	KeyboardManager.registerKeyboardShortcuts(mainWindow);
 	
 };
 
+const onQuit = (e) => {
+	// save config
+}
+
 app.on("ready", initialize);
 app.on("activate", initialize);
-
+app.on("quit", onQuit);

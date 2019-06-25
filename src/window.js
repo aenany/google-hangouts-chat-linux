@@ -1,5 +1,6 @@
 const {BrowserWindow} = require("electron");
 const pathsManifest = require('./paths');
+const ConfigManager = require('./configs');
 let mainWindow;
 
 const getBrowserWindowOptions = () => {
@@ -22,16 +23,23 @@ const getExtraOptions = () => {
 	};
 }
 
-const initializeWindow = () => {
-	const bwOptions = getBrowserWindowOptions();
+const initializeWindow = (config) => {
+	const bwOptions = (config && config.bounds) ? Object.assign(getBrowserWindowOptions(), config.bounds) : getBrowserWindowOptions()
 	const extraOptions = getExtraOptions();
-	
+
 	mainWindow = new BrowserWindow(bwOptions);
-	mainWindow.setMenu(null);
-	mainWindow.loadURL(extraOptions.url);
+		mainWindow.loadURL(extraOptions.url);
 
 	mainWindow.once('ready-to-show', () => {
 		mainWindow.show();
+	});
+
+	mainWindow.on('close', () => {
+		let isMaximized = mainWindow.isMaximized();
+		configsData = {};
+		configsData.bounds = mainWindow.getBounds();
+		configsData.wasMaximized = isMaximized;
+		ConfigManager.saveConfigs(configsData);
 	});
 
 	return mainWindow;
