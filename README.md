@@ -1,6 +1,8 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 # Unofficial Google Hangouts Chat client for Linux
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/daa44071b9c84ec883b9a3f44831eaf2)](https://www.codacy.com/app/aenany/google-hangouts-chat-linux?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=aenany/google-hangouts-chat-linux&amp;utm_campaign=Badge_Grade)
+
 
 This project supports Linux clients for [Google Hangouts Chat for Teams](https://gsuite.google.com/products/chat/). Contributions are welcome, this is a project maintained to learn more about Electron, and to hopefully provide something of use to Linux users of Google Hangouts.
 
