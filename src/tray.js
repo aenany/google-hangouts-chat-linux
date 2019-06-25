@@ -1,4 +1,4 @@
-const {Tray, Menu} = require("electron");
+const {app, Tray, Menu} = require("electron");
 const pathsManifest = require("./paths");
 const invertColor = require('./colors');
 let mainWindow;
@@ -13,7 +13,7 @@ const onHideEntryClicked = () => {
 }
 
 const onQuitEntryClicked = () => {
-	// not implemented
+	app.quit();
 }
 
 const onInvertEntryClicked = (mainWindow) => {
@@ -34,6 +34,13 @@ const initializeTray = (windowObj) => {
 
 	const template = [
 		{
+			"label": "Toggle Dark Mode",
+			"role": "unhide",
+			"click": () => {
+				onInvertEntryClicked(mainWindow);
+			}
+		},
+		{
 			"label": "Show",
 			"role": "unhide",
 			"click": () => {
@@ -45,13 +52,6 @@ const initializeTray = (windowObj) => {
 			"click": () => {
 				onHideEntryClicked();
 			},
-		},
-		{
-			"label": "Toggle Dark Mode",
-			"role": "unhide",
-			"click": () => {
-				onInvertEntryClicked(mainWindow);
-			}
 		},
 		{
 			"label": "Quit",
