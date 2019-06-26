@@ -1,5 +1,6 @@
 const {app, Tray, Menu} = require("electron");
 const pathsManifest = require("./paths");
+const ConfigManager = require('./configs');
 const fs = require('fs');
 let mainWindow;
 
@@ -17,7 +18,11 @@ const onQuitEntryClicked = () => {
 
 const onInvertEntryClicked = (mainWindow) => {
 	const invertColors = fs.readFileSync('./src/clientside/invertColors.js', 'utf8');
-	mainWindow.webContents.executeJavaScript(invertColors);
+	const configs = ConfigManager.loadConfigs();
+	
+	mainWindow.webContents.executeJavaScript(invertColors);	
+	configs.darkMode = (configs.darkMode) ? false : true;
+	ConfigManager.updateConfigs(configs);
 }
 
 const onSystemTrayIconClicked = () => {

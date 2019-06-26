@@ -10,8 +10,8 @@ This project supports Linux clients for [Google Hangouts Chat for Teams](https:/
 
 * Ability to toggle "Dark Mode", which inverts the colors in the application for easy reading at night
 * Persistent login sessions
-* Remember size and position of the application window upon restart (wip)
-* Remember preference for Dark Mode (wip)
+* Remember size and position of the application window upon restart
+* Remember preference for Dark Mode
 * Support for major Linux distributions (wip)
 
 ## Getting Started
