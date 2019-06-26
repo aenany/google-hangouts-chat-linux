@@ -32,13 +32,12 @@ const initializeWindow = (config) => {
 	mainWindow.loadURL(extraOptions.url);
 
 	mainWindow.once('ready-to-show', () => {
-		mainWindow.show();
-
 		if(config.darkMode) {
 			const invertColors = fs.readFileSync('./src/clientside/invertColors.js', 'utf8');
-			mainWindow.webContents.executeJavaScript(invertColors);
+			mainWindow.webContents.executeJavaScript(invertColors, false, () => {
+				mainWindow.show();
+			});
 		}
-
 	});
 
 	mainWindow.on('close', () => {
