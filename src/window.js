@@ -1,6 +1,7 @@
 const {BrowserWindow} = require("electron");
 const pathsManifest = require('./paths');
 const ConfigManager = require('./configs');
+const fs = require('fs');
 let mainWindow;
 
 const getBrowserWindowOptions = () => {
@@ -28,10 +29,16 @@ const initializeWindow = (config) => {
 	const extraOptions = getExtraOptions();
 
 	mainWindow = new BrowserWindow(bwOptions);
-		mainWindow.loadURL(extraOptions.url);
+	mainWindow.loadURL(extraOptions.url);
 
 	mainWindow.once('ready-to-show', () => {
 		mainWindow.show();
+
+		if(config.darkMode) {
+			const invertColors = fs.readFileSync('./src/clientside/invertColors.js', 'utf8');
+			mainWindow.webContents.executeJavaScript(invertColors);
+		}
+
 	});
 
 	mainWindow.on('close', () => {
@@ -39,7 +46,7 @@ const initializeWindow = (config) => {
 		configsData = {};
 		configsData.bounds = mainWindow.getBounds();
 		configsData.wasMaximized = isMaximized;
-		ConfigManager.saveConfigs(configsData);
+		ConfigManager.updateConfigs(configsData);
 	});
 
 	return mainWindow;

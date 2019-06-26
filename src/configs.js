@@ -14,6 +14,12 @@ const loadConfigs = () => {
 	}
 }
 
+const updateConfigs = (updateData) => {
+	let configs = loadConfigs();
+	configs = Object.assign({}, configs, updateData);
+	saveConfigs(configs);
+}
+
 const saveConfigs = (configData) => {
 	try {
 		fs.writeFileSync(configPath, JSON.stringify(configData), 'utf8');
@@ -25,5 +31,6 @@ const saveConfigs = (configData) => {
 
 module.exports = {
 	"loadConfigs": loadConfigs,
+	"updateConfigs": updateConfigs,
 	"saveConfigs": saveConfigs
 }
