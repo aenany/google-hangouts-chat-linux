@@ -1,7 +1,7 @@
 javascript: (
     function() {
 		var css = 
-			`html {
+			`body {
 				-webkit-filter: invert(100%);' 
             	'-moz-filter: invert(100%);' 
             	'-o-filter: invert(100%);' 
@@ -16,7 +16,7 @@ javascript: (
         } else {
             window.__invertCounter++;
             if (window.__invertCounter % 2 == 0) {
-                var css = `html {
+                var css = `body {
 							-webkit-filter: invert(0%);
 							-moz-filter: invert(0%);
 							-o-filter: invert(0%); 
