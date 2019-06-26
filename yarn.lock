@@ -641,13 +641,13 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-electron-context-menu@^0.12.1:
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/electron-context-menu/-/electron-context-menu-0.12.1.tgz#ad39be2a91cdb4f5d0ff61679782dae59ab04e46"
-  integrity sha512-VZ7fKWhrfKGl2KsC3jBuZBs4hXrP7akH1F1gnjtmi9JCHMwzbuBS2fzQIHAL4vimtP1X3OT+h7xuWLopVy1G+A==
+electron-context-menu@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/electron-context-menu/-/electron-context-menu-0.9.1.tgz#ed4df20c080491c3c996abfcb363159946a38058"
+  integrity sha1-7U3yDAgEkcPJlqv8s2MVmUajgFg=
   dependencies:
     electron-dl "^1.2.0"
-    electron-is-dev "^1.0.1"
+    electron-is-dev "^0.1.1"
 
 electron-dl@^1.2.0:
   version "1.14.0"
@@ -721,10 +721,10 @@ electron-is-accelerator@^0.1.0:
   resolved "https://registry.yarnpkg.com/electron-is-accelerator/-/electron-is-accelerator-0.1.2.tgz#509e510c26a56b55e17f863a4b04e111846ab27b"
   integrity sha1-UJ5RDCala1Xhf4Y6SwThEYRqsns=
 
-electron-is-dev@^1.0.1:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/electron-is-dev/-/electron-is-dev-1.1.0.tgz#b15a2a600bdc48a51a857d460e05f15b19a2522c"
-  integrity sha512-Z1qA/1oHNowGtSBIcWk0pcLEqYT/j+13xUw/MYOrBUOL4X7VN0i0KCTf5SqyvMPmW5pSPKbo28wkxMxzZ20YnQ==
+electron-is-dev@^0.1.1:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/electron-is-dev/-/electron-is-dev-0.1.2.tgz#8a1043e32b3a1da1c3f553dce28ce764246167e3"
+  integrity sha1-ihBD4ys6HaHD9VPc4oznZCRhZ+M=
 
 electron-localshortcut@^3.1.0:
   version "3.1.0"

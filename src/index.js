@@ -3,8 +3,9 @@ const WindowManager = require('./window');
 const TrayManager = require('./tray');
 const KeyboardManager = require('./keyboard');
 const ConfigManager = require('./configs');
+const ContextMenu = require('./contextmenu');
 const applicationVersion = require('./../package.json').version;
-let mainWindow, systemTrayIcon, config;
+let mainWindow, systemTrayIcon, config, contextMenu;
 
 process.title = 'Google Hangouts Chat for Linux (Unofficial)';
 console.log(process.title + ' - v' + applicationVersion);
@@ -15,11 +16,16 @@ const initialize = () => {
 	
 	if(!mainWindow) {
 		mainWindow = WindowManager.initializeWindow(config);
+	}	
+	
+	if(!contextMenu) {
+		contextMenu = ContextMenu.initializeContextMenu(mainWindow);
 	}
 
 	if(!systemTrayIcon) {
 		systemTrayIcon = TrayManager.initializeTray(mainWindow, config);
 	}
+
 
 	KeyboardManager.registerKeyboardShortcuts(mainWindow);
 	
