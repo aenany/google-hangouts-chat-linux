@@ -1,6 +1,6 @@
 const {app, Tray, Menu} = require("electron");
 const pathsManifest = require("./paths");
-const invertColor = require('./colors');
+const fs = require('fs');
 let mainWindow;
 
 const onShowEntryClicked = () => {
@@ -16,7 +16,8 @@ const onQuitEntryClicked = () => {
 }
 
 const onInvertEntryClicked = (mainWindow) => {
-	mainWindow.webContents.executeJavaScript(invertColor);
+	const invertColors = fs.readFileSync('./src/clientside/invertColors.js', 'utf8');
+	mainWindow.webContents.executeJavaScript(invertColors);
 }
 
 const onSystemTrayIconClicked = () => {
