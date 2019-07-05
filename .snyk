@@ -1,0 +1,16 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - '@electron-forge/cli > inquirer > lodash':
+        patched: '2019-07-03T21:32:18.398Z'
+    - '@electron-forge/maker-deb > electron-installer-debian > lodash':
+        patched: '2019-07-03T21:32:18.398Z'
+    - '@electron-forge/maker-rpm > electron-installer-redhat > lodash':
+        patched: '2019-07-03T21:32:18.398Z'
+    - '@electron-forge/maker-deb > electron-installer-debian > electron-installer-common > lodash':
+        patched: '2019-07-03T21:32:18.398Z'
+    - '@electron-forge/maker-rpm > electron-installer-redhat > electron-installer-common > lodash':
+        patched: '2019-07-03T21:32:18.398Z'
