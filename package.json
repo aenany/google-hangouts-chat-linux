@@ -5,35 +5,35 @@
   "description": "Google Chat client for Linux.",
   "main": "src/index.js",
   "scripts": {
-	"start": "electron-forge start",
-	"package": "electron-forge package",
-	"make": "electron-forge make",
-	"publish": "electron-forge publish",
-	"lint": "echo \"No linting configured\"",
-	"snyk-protect": "snyk protect",
-	"prepublish": "npm run snyk-protect"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\"",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [],
   "author": "aenany",
   "license": "MIT",
   "config": {
-	"forge": {
-	  "packagerConfig": {}
-	}
+    "forge": {
+      "packagerConfig": {}
+    }
   },
   "dependencies": {
-	"crypto": "^1.0.1",
-	"electron-context-menu": "0.9.1",
-	"electron-localshortcut": "^3.1.0",
-	"fs": "^0.0.1-security",
-	"path": "^0.12.7",
-	"snyk": "^1.189.0"
+    "crypto": "^1.0.1",
+    "electron-context-menu": "0.9.1",
+    "electron-localshortcut": "^3.1.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "snyk": "^1.192.3"
   },
   "devDependencies": {
-	"@electron-forge/cli": "6.0.0-beta.39",
-	"@electron-forge/maker-deb": "6.0.0-beta.39",
-	"@electron-forge/maker-rpm": "6.0.0-beta.39",
-	"electron": "5.0.3"
+    "@electron-forge/cli": "6.0.0-beta.39",
+    "@electron-forge/maker-deb": "6.0.0-beta.39",
+    "@electron-forge/maker-rpm": "6.0.0-beta.39",
+    "electron": "5.0.3"
   },
   "snyk": true
 }
