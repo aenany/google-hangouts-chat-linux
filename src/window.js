@@ -1,8 +1,13 @@
-const {BrowserWindow} = require("electron");
+const {BrowserWindow, ipcMain, shell} = require("electron");
 const pathsManifest = require('./paths');
 const ConfigManager = require('./configs');
 const fs = require('fs');
 let mainWindow;
+let isDarkMode;
+
+ipcMain.on('open-link', (evt, href) => {
+	shell.openExternal(href);
+});
 
 const getBrowserWindowOptions = () => {
 	return {
@@ -20,9 +25,33 @@ const getBrowserWindowOptions = () => {
 const getExtraOptions = () => {
 	return {
 		"name": "Google Hangouts Chat for Linux",
-		"url": "https://chat.google.com"
+		"url": "https://chat.google.com",
+		"openLocally": true
 	};
 }
+
+const handleDarkMode = (config, windowObj) => {
+	const invertColors = fs.readFileSync('./src/clientside/invertColors.js', 'utf8');
+
+	if(config.darkMode && !isDarkMode) {
+		isDarkMode = true;
+		windowObj.webContents.executeJavaScript(invertColors, false, () => {
+			windowObj.show();
+		});
+	} else {
+		windowObj.show();
+	}
+}
+
+const attachOpenLinkListener = (windowObj) => {
+	const handleUrls = fs.readFileSync('./src/clientside/handleUrls.js', 'utf8');
+	windowObj.webContents.executeJavaScript(handleUrls, true, () => {});
+}
+
+const handleRedirect = (e, url) => {
+	shell.openExternal(url);
+	e.preventDefault();
+};
 
 const initializeWindow = (config) => {
 	const bwOptions = (config && config.bounds) ? Object.assign(getBrowserWindowOptions(), config.bounds) : getBrowserWindowOptions()
@@ -32,13 +61,12 @@ const initializeWindow = (config) => {
 	mainWindow.loadURL(extraOptions.url);
 
 	mainWindow.once('ready-to-show', () => {
-		if(config.darkMode) {
-			const invertColors = fs.readFileSync('./src/clientside/invertColors.js', 'utf8');
-			mainWindow.webContents.executeJavaScript(invertColors, false, () => {
-				mainWindow.show();
-			});
-		}
+		handleDarkMode(config, mainWindow);
 	});
+
+	mainWindow.webContents.on('dom-ready', () => {
+		attachOpenLinkListener(mainWindow);
+	})
 
 	mainWindow.on('close', () => {
 		let isMaximized = mainWindow.isMaximized();
@@ -46,7 +74,11 @@ const initializeWindow = (config) => {
 		configsData.bounds = mainWindow.getBounds();
 		configsData.wasMaximized = isMaximized;
 		ConfigManager.updateConfigs(configsData);
+		isDarkMode = false;
 	});
+
+	mainWindow.webContents.on('will-navigate', handleRedirect);
+	mainWindow.webContents.on('new-window', handleRedirect);
 
 	return mainWindow;
 }

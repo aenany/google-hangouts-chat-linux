@@ -13,17 +13,9 @@ const goForward = () => {
 	}
 }
 
-const reloadWindow = () => {
-	mainWindow.reload();
-}
-
 const registerKeyboardShortcuts = (windowObj) => {
 	mainWindow = windowObj;
 	
-	globalShortcut.register("F5", () => {
-		reloadWindow();
-	});
-
 	globalShortcut.register("Alt+Right", () => {
 		goForward();
 	});
