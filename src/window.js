@@ -3,6 +3,7 @@ const pathsManifest = require('./paths');
 const ConfigManager = require('./configs');
 const fs = require('fs');
 let mainWindow;
+let isDarkMode;
 
 const getBrowserWindowOptions = () => {
 	return {
@@ -24,6 +25,19 @@ const getExtraOptions = () => {
 	};
 }
 
+const handleDarkMode = (config, windowObj) => {
+	const invertColors = fs.readFileSync('./src/clientside/invertColors.js', 'utf8');
+
+	if(config.darkMode && !isDarkMode) {
+		isDarkMode = true;
+		windowObj.webContents.executeJavaScript(invertColors, false, () => {
+			windowObj.show();
+		});
+	} else {
+		windowObj.show();
+	}
+}
+
 const initializeWindow = (config) => {
 	const bwOptions = (config && config.bounds) ? Object.assign(getBrowserWindowOptions(), config.bounds) : getBrowserWindowOptions()
 	const extraOptions = getExtraOptions();
@@ -32,12 +46,7 @@ const initializeWindow = (config) => {
 	mainWindow.loadURL(extraOptions.url);
 
 	mainWindow.once('ready-to-show', () => {
-		if(config.darkMode) {
-			const invertColors = fs.readFileSync('./src/clientside/invertColors.js', 'utf8');
-			mainWindow.webContents.executeJavaScript(invertColors, false, () => {
-				mainWindow.show();
-			});
-		}
+		handleDarkMode(config, mainWindow);
 	});
 
 	mainWindow.on('close', () => {
@@ -46,6 +55,7 @@ const initializeWindow = (config) => {
 		configsData.bounds = mainWindow.getBounds();
 		configsData.wasMaximized = isMaximized;
 		ConfigManager.updateConfigs(configsData);
+		isDarkMode = false;
 	});
 
 	return mainWindow;
