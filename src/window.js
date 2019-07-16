@@ -1,9 +1,13 @@
-const {BrowserWindow} = require("electron");
+const {BrowserWindow, ipcMain, shell} = require("electron");
 const pathsManifest = require('./paths');
 const ConfigManager = require('./configs');
 const fs = require('fs');
 let mainWindow;
 let isDarkMode;
+
+ipcMain.on('open-link', (evt, href) => {
+	shell.openExternal(href);
+});
 
 const getBrowserWindowOptions = () => {
 	return {
@@ -21,7 +25,8 @@ const getBrowserWindowOptions = () => {
 const getExtraOptions = () => {
 	return {
 		"name": "Google Hangouts Chat for Linux",
-		"url": "https://chat.google.com"
+		"url": "https://chat.google.com",
+		"openLocally": true
 	};
 }
 
@@ -38,6 +43,16 @@ const handleDarkMode = (config, windowObj) => {
 	}
 }
 
+const attachOpenLinkListener = (windowObj) => {
+	const handleUrls = fs.readFileSync('./src/clientside/handleUrls.js', 'utf8');
+	windowObj.webContents.executeJavaScript(handleUrls, true, () => {});
+}
+
+const handleRedirect = (e, url) => {
+	shell.openExternal(url);
+	e.preventDefault();
+};
+
 const initializeWindow = (config) => {
 	const bwOptions = (config && config.bounds) ? Object.assign(getBrowserWindowOptions(), config.bounds) : getBrowserWindowOptions()
 	const extraOptions = getExtraOptions();
@@ -49,6 +64,10 @@ const initializeWindow = (config) => {
 		handleDarkMode(config, mainWindow);
 	});
 
+	mainWindow.webContents.on('dom-ready', () => {
+		attachOpenLinkListener(mainWindow);
+	})
+
 	mainWindow.on('close', () => {
 		let isMaximized = mainWindow.isMaximized();
 		configsData = {};
@@ -57,6 +76,9 @@ const initializeWindow = (config) => {
 		ConfigManager.updateConfigs(configsData);
 		isDarkMode = false;
 	});
+
+	mainWindow.webContents.on('will-navigate', handleRedirect);
+	mainWindow.webContents.on('new-window', handleRedirect);
 
 	return mainWindow;
 }
