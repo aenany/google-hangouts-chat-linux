@@ -3,9 +3,11 @@ const fs = require("fs");
 const path = require("path");
 
 const configFilename = "google-hangouts-chat-linux.json";
-const configPath = path.join(app.getPath("appData"), configFilename);
+const devPath = path.join(app.getPath("temp"), configFilename);
+const prodPath = path.join(app.getPath("appData"), configFilename);
+const configPath = process.env.NODE_ENV === 'development' ? devPath : prodPath;
 
-const loadConfigs = () => {
+const loadConfigs = () => {	
 	try {
 		return JSON.parse(fs.readFileSync(configPath, "utf8"));
 	} catch (e) {

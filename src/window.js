@@ -14,7 +14,8 @@ const getBrowserWindowOptions = () => {
 		"title": process.title,
 		"autoHideMenuBar": true,
 		"webPreferences": {
-			"node-integration": false
+			"node-integration": false,
+			"devTools": false,
 		},
 		"show": false,
 		"backgroundColor": "#262727",
@@ -33,7 +34,7 @@ const getExtraOptions = () => {
 const handleDarkMode = (config, windowObj) => {
 	const invertColors = fs.readFileSync('./src/clientside/invertColors.js', 'utf8');
 
-	if(config.darkMode && !isDarkMode) {
+	if(config && config.darkMode && !isDarkMode) {
 		isDarkMode = true;
 		windowObj.webContents.executeJavaScript(invertColors, false, () => {
 			windowObj.show();
@@ -59,15 +60,12 @@ const initializeWindow = (config) => {
 
 	mainWindow = new BrowserWindow(bwOptions);
 	mainWindow.loadURL(extraOptions.url);
-
 	mainWindow.once('ready-to-show', () => {
 		handleDarkMode(config, mainWindow);
 	});
-
 	mainWindow.webContents.on('dom-ready', () => {
 		attachOpenLinkListener(mainWindow);
 	})
-
 	mainWindow.on('close', () => {
 		let isMaximized = mainWindow.isMaximized();
 		configsData = {};
@@ -76,7 +74,6 @@ const initializeWindow = (config) => {
 		ConfigManager.updateConfigs(configsData);
 		isDarkMode = false;
 	});
-
 	mainWindow.webContents.on('will-navigate', handleRedirect);
 	mainWindow.webContents.on('new-window', handleRedirect);
 
