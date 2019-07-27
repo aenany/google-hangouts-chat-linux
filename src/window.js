@@ -14,7 +14,7 @@ const getBrowserWindowOptions = () => {
 		"title": process.title,
 		"autoHideMenuBar": true,
 		"webPreferences": {
-			"node-integration": false,
+			"node-integration": true,
 			"devTools": false,
 		},
 		"show": false,

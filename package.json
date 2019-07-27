@@ -12,7 +12,7 @@
     "lint": "echo \"No linting configured\"",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
-    "test": "npx mocha test/main.test.js --out"
+    "test": "npx mocha test/* --out"
   },
   "keywords": [],
   "author": "aenany",
