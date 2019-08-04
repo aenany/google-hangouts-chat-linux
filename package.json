@@ -4,24 +4,24 @@
 		"appId": "com.linux.chat.google",
 		"asar": false,
 		"linux": {
-			"target": "AppImage, snap, deb, rpm, freebsd, pacman, p5p, apk, zip",
-			"icon": "./build/icon/icon@2x.png",
+			"target": ["appimage", "snap", "deb", "rpm", "freebsd", "pacman", "apk", "zip"],
+			"icon": "./build/icon.png",
 			"synopsis": "Chat Client",
-			"categories": ["Network", "Audio", "Video", "Office", "Utility"],
+			"category": "Office",
 			"desktop": {
 				"Name": "Google Hangouts Chat",
-				"Exec": "google-hangouts-chat",				
 				"Type": "Application"
-			}
+			},
+			"maintainer": "https://github.com/aenany"
 		}
 	},
 	"dependencies": {
-		"crypto": "^1.0.1",
+		"crypto": "1.0.1",
 		"electron-context-menu": "0.9.1",
-		"electron-localshortcut": "^3.1.0",
-		"fs": "^0.0.1-security",
-		"path": "^0.12.7",
-		"snyk": "^1.192.3"
+		"electron-localshortcut": "3.1.0",
+		"fs": "0.0.1-security",
+		"path": "0.12.7",
+		"snyk": "1.192.3"
 	},
 	"description": "Unofficial Desktop Client for Google Hangouts Chat for Teams.",
 	"devDependencies": {
