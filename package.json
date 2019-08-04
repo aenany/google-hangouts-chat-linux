@@ -1,28 +1,45 @@
 {
-  "name": "google-chat-linux",
-  "productName": "google-chat-linux",
-  "version": "0.0.4",
-  "description": "Google Chat client for Linux.",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "npx electron src/index.js",
-    "lint": "echo \"No linting configured\"",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
-  },
-  "keywords": [],
-  "author": "aenany",
-  "license": "MIT",
-  "dependencies": {
-    "crypto": "^1.0.1",
-    "electron-context-menu": "0.9.1",
-    "electron-localshortcut": "^3.1.0",
-    "fs": "^0.0.1-security",
-    "path": "^0.12.7",
-    "snyk": "^1.192.3"
-  },
-  "devDependencies": {
-    "electron": "5.0.3"
-  },
-  "snyk": true
+	"author": "https://github.com/aenany",
+	"build": {
+		"appId": "com.linux.chat.google",
+		"asar": false,
+		"linux": {
+			"target": "AppImage, snap, deb, rpm, freebsd, pacman, p5p, apk, zip",
+			"icon": "./build/icon/icon@2x.png",
+			"synopsis": "Chat Client",
+			"categories": ["Network", "Audio", "Video", "Office", "Utility"],
+			"desktop": {
+				"Name": "Google Hangouts Chat",
+				"Exec": "google-hangouts-chat",				
+				"Type": "Application"
+			}
+		}
+	},
+	"dependencies": {
+		"crypto": "^1.0.1",
+		"electron-context-menu": "0.9.1",
+		"electron-localshortcut": "^3.1.0",
+		"fs": "^0.0.1-security",
+		"path": "^0.12.7",
+		"snyk": "^1.192.3"
+	},
+	"description": "Unofficial Desktop Client for Google Hangouts Chat for Teams.",
+	"devDependencies": {
+		"electron": "5.0.3"
+	},
+	"keywords": [],
+	"license": "MIT",
+	"main": "src/index.js",
+	"name": "google-hangouts-chat",
+	"productName": "google-hangouts-chat",
+	"scripts": {
+		"dist": "DEBUG=electron-builder electron-builder",
+		"lint": "echo \"No linting configured\"",
+		"pack": "electron-builder --dir",		
+		"prepublish": "npm run snyk-protect",
+		"snyk-protect": "snyk protect",
+		"start": "npx electron src/index.js"
+	},
+	"snyk": true,
+	"version": "0.0.4"
 }
