@@ -12,7 +12,8 @@ This project supports Linux clients for [Google Hangouts Chat for Teams](https:/
 * Persistent login sessions
 * Remember size and position of the application window upon restart
 * Remember preference for Dark Mode
-* Support for major Linux distributions (wip)
+* Support for major Linux distributions (AppImage, Snap, Debian, RPM, Arch Linux (Pacman), Alpine Linux (APK), and ZIP)
+* Support for FreeBSD
 
 ## Getting Started
 
@@ -52,6 +53,26 @@ TBD.
 ## Deployment
 
 TBD. -->
+
+# Building the Linux binaries
+
+Ability to build the above mentioned binaries were accomplished in Kubuntu 18.04 LTS with the following dependencies / commands:
+
+```
+sudo apt install rpm
+sudo apt install build-essential
+sudo apt install ruby ruby-dev rubygems gcc make
+sudo apt install makepkg
+sudo apt install bsdtar
+```
+
+Once that is complete, install the npm packages.
+
+Then run the following command:
+
+`yarn dist`
+
+The binaries will output to the `dist/` folder.
 
 ## Built With
 
