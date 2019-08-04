@@ -13,7 +13,13 @@
 				"Type": "Application"
 			},
 			"maintainer": "https://github.com/aenany"
-		}
+		},
+		"publish": [{
+			"provider": "github",
+			"owner": "aenany",
+			"project": "https://github.com/aenany/google-hangouts-chat-linux/",
+			"private": false
+		}]
 	},
 	"dependencies": {
 		"crypto": "1.0.1",
@@ -32,12 +38,17 @@
 	"main": "src/index.js",
 	"name": "google-hangouts-chat",
 	"productName": "google-hangouts-chat",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/aenany/google-hangouts-chat-linux/"
+	},
 	"scripts": {
 		"clean": "rm -rf dist/",
 		"dist": "DEBUG=electron-builder electron-builder",
 		"lint": "echo \"No linting configured\"",
 		"pack": "electron-builder --dir",		
 		"prepublish": "npm run snyk-protect",
+		"release": "DEBUG=electron-builder electron-builder publish",
 		"snyk-protect": "snyk protect",
 		"start": "npx electron src/index.js"
 	},
