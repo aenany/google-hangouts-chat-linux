@@ -4,7 +4,7 @@
 		"appId": "com.linux.chat.google",
 		"asar": false,
 		"linux": {
-			"target": ["appimage", "snap", "deb", "rpm", "freebsd", "pacman", "apk", "zip"],
+			"target": ["deb"],
 			"icon": "./build/icon.png",
 			"synopsis": "Chat Client",
 			"category": "Office",
@@ -33,6 +33,7 @@
 	"name": "google-hangouts-chat",
 	"productName": "google-hangouts-chat",
 	"scripts": {
+		"clean": "rm -rf dist/",
 		"dist": "DEBUG=electron-builder electron-builder",
 		"lint": "echo \"No linting configured\"",
 		"pack": "electron-builder --dir",		

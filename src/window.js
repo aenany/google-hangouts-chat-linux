@@ -31,7 +31,7 @@ const getExtraOptions = () => {
 }
 
 const handleDarkMode = (config, windowObj) => {
-	const invertColors = fs.readFileSync('./src/clientside/invertColors.js', 'utf8');
+	const invertColors = fs.readFileSync(pathsManifest.invertColors, 'utf8');
 
 	if(config.darkMode && !isDarkMode) {
 		isDarkMode = true;
@@ -44,7 +44,7 @@ const handleDarkMode = (config, windowObj) => {
 }
 
 const attachOpenLinkListener = (windowObj) => {
-	const handleUrls = fs.readFileSync('./src/clientside/handleUrls.js', 'utf8');
+	const handleUrls = fs.readFileSync(pathsManifest.handleUrls, 'utf8');
 	windowObj.webContents.executeJavaScript(handleUrls, true, () => {});
 }
 

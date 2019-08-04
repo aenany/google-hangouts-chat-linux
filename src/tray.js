@@ -17,7 +17,7 @@ const onQuitEntryClicked = () => {
 }
 
 const onInvertEntryClicked = (mainWindow) => {
-	const invertColors = fs.readFileSync('./src/clientside/invertColors.js', 'utf8');
+	const invertColors = fs.readFileSync(pathsManifest.invertColors, 'utf8');
 	const configs = ConfigManager.loadConfigs();
 	
 	mainWindow.webContents.executeJavaScript(invertColors);	

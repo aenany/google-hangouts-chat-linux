@@ -1,13 +1,10 @@
 const {app} = require("electron");
 const fs = require("fs");
-const path = require("path");
-
-const configFilename = "google-hangouts-chat-linux.json";
-const configPath = path.join(app.getPath("appData"), configFilename);
+const pathsManifest = require("./paths");
 
 const loadConfigs = () => {
 	try {
-		return JSON.parse(fs.readFileSync(configPath, "utf8"));
+		return JSON.parse(fs.readFileSync(pathsManifest.configsPath, "utf8"));
 	} catch (e) {
 		console.error(e);
 		return null;
@@ -22,7 +19,7 @@ const updateConfigs = (updateData) => {
 
 const saveConfigs = (configData) => {
 	try {
-		fs.writeFileSync(configPath, JSON.stringify(configData), 'utf8');
+		fs.writeFileSync(pathsManifest.configsPath, JSON.stringify(configData), 'utf8');
 	} catch (e) {
 		console.error(e);
 		return;
