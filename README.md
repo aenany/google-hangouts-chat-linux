@@ -74,6 +74,11 @@ Then run the following command:
 
 The binaries will output to the `dist/` folder.
 
+# Publishing Binaries
+
+## GitHub
+Set the `GH_TOKEN` environment variable, then run `GH_TOKEN=$GH_TOKEN yarn release` to publish a new version of the software as a draft to your repository.
+
 ## Built With
 
 * [Node.js](https://nodejs.org) - JavaScript runtime environment
