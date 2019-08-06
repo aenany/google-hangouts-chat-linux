@@ -4,7 +4,7 @@
 		"appId": "com.linux.chat.google",
 		"asar": false,
 		"linux": {
-			"target": ["appimage"],
+			"target": ["appimage", "deb", "rpm", "freebsd", "pacman", "apk", "zip"],
 			"icon": "icon.png",
 			"synopsis": "Chat Client",
 			"category": "Office",
