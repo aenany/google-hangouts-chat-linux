@@ -4,7 +4,7 @@
 		"appId": "com.linux.chat.google",
 		"asar": false,
 		"linux": {
-			"target": ["appimage", "snap", "deb", "rpm", "freebsd", "pacman", "apk", "zip"],
+			"target": ["appimage", "deb", "rpm", "freebsd", "pacman", "apk", "zip"],
 			"icon": "icon.png",
 			"synopsis": "Chat Client",
 			"category": "Office",
@@ -13,7 +13,12 @@
 				"Type": "Application"
 			},
 			"maintainer": "https://github.com/aenany"
-		}
+		},
+		"publish": [{
+			"provider": "github",
+			"owner": "aenany",
+			"repo": "google-hangouts-chat-linux"
+		}]
 	},
 	"dependencies": {
 		"crypto": "1.0.1",
@@ -49,5 +54,5 @@
 		"test": "snyk test"
 	},
 	"snyk": true,
-	"version": "0.0.5"
+	"version": "0.0.6"
 }
