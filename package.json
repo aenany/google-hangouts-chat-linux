@@ -1,61 +1,71 @@
 {
-	"author": "https://github.com/aenany",
-	"build": {
-		"appId": "com.linux.chat.google",
-		"asar": false,
-		"linux": {
-			"target": ["appimage", "deb", "rpm", "freebsd", "pacman", "apk", "zip"],
-			"icon": "icon.png",
-			"synopsis": "Chat Client",
-			"category": "Office",
-			"desktop": {
-				"Name": "Google Hangouts Chat",
-				"Type": "Application"
-			},
-			"maintainer": "https://github.com/aenany"
-		},
-		"publish": [{
-			"provider": "github",
-			"owner": "aenany",
-			"repo": "google-hangouts-chat-linux",
-			"vPrefixedTagName": true,
-			"protocol": "https",
-			"releaseType": "draft"
-		}]
-	},
-	"dependencies": {
-		"crypto": "1.0.1",
-		"electron-context-menu": "0.9.1",
-		"electron-localshortcut": "3.1.0",
-		"fs": "0.0.1-security",
-		"path": "0.12.7",
-		"snyk": "^1.210.0"
-	},
-	"description": "Unofficial Desktop Client for Google Hangouts Chat for Teams.",
-	"devDependencies": {
-		"electron": "5.0.3",
-		"electron-builder": "21.2.0"
-	},
-	"keywords": [],
-	"license": "MIT",
-	"main": "src/index.js",
-	"name": "google-hangouts-chat",
-	"productName": "google-hangouts-chat",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/aenany/google-hangouts-chat-linux/"
-	},
-	"scripts": {
-		"clean": "rm -rf dist/",
-		"dist": "DEBUG=electron-builder electron-builder",
-		"lint": "echo \"No linting configured\"",
-		"pack": "electron-builder --dir",
-		"prepublish": "npm run snyk-protect",
-		"release": "DEBUG=electron-builder electron-builder publish",
-		"snyk-protect": "snyk protect",
-		"start": "npx electron src/index.js",
-		"test": "snyk test"
-	},
-	"snyk": true,
-	"version": "0.0.5"
+  "author": "https://github.com/aenany",
+  "build": {
+    "appId": "com.linux.chat.google",
+    "asar": false,
+    "linux": {
+      "target": [
+        "appimage",
+        "deb",
+        "rpm",
+        "freebsd",
+        "pacman",
+        "apk",
+        "zip"
+      ],
+      "icon": "icon.png",
+      "synopsis": "Chat Client",
+      "category": "Office",
+      "desktop": {
+        "Name": "Google Hangouts Chat",
+        "Type": "Application"
+      },
+      "maintainer": "https://github.com/aenany"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "aenany",
+        "repo": "google-hangouts-chat-linux",
+        "vPrefixedTagName": true,
+        "protocol": "https",
+        "releaseType": "draft"
+      }
+    ]
+  },
+  "dependencies": {
+    "crypto": "1.0.1",
+    "electron-context-menu": "0.9.1",
+    "electron-localshortcut": "3.1.0",
+    "fs": "0.0.1-security",
+    "path": "0.12.7",
+    "snyk": "^1.230.5"
+  },
+  "description": "Unofficial Desktop Client for Google Hangouts Chat for Teams.",
+  "devDependencies": {
+    "electron": "5.0.3",
+    "electron-builder": "21.2.0"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "main": "src/index.js",
+  "name": "google-hangouts-chat",
+  "productName": "google-hangouts-chat",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aenany/google-hangouts-chat-linux/"
+  },
+  "scripts": {
+    "clean": "rm -rf dist/",
+    "dist": "DEBUG=electron-builder electron-builder",
+    "lint": "echo \"No linting configured\"",
+    "pack": "electron-builder --dir",
+    "prepublish": "npm run snyk-protect",
+    "release": "DEBUG=electron-builder electron-builder publish",
+    "snyk-protect": "snyk protect",
+    "start": "npx electron src/index.js",
+    "test": "snyk test"
+  },
+  "snyk": true,
+  "version": "0.0.5"
 }
