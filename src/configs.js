@@ -9,7 +9,7 @@ const loadConfigs = () => {
 		}
 	} catch (e) {
 		console.error(e);
-		return null;
+		return {};
 	}
 }
 
