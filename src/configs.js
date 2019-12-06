@@ -4,7 +4,9 @@ const pathsManifest = require("./paths");
 
 const loadConfigs = () => {
 	try {
-		return JSON.parse(fs.readFileSync(pathsManifest.configsPath, "utf8"));
+		if(fs.existsSync(pathsManifest.configsPath)) {
+			return JSON.parse(fs.readFileSync(pathsManifest.configsPath, "utf8"));
+		}
 	} catch (e) {
 		console.error(e);
 		return null;
