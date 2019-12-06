@@ -54,6 +54,8 @@ const handleRedirect = (e, url) => {
 };
 
 const initializeWindow = (config) => {
+	config = config || {}
+	
 	const bwOptions = (config && config.bounds) ? Object.assign(getBrowserWindowOptions(), config.bounds) : getBrowserWindowOptions()
 	const extraOptions = getExtraOptions();
 
