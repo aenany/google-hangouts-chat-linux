@@ -39,12 +39,12 @@
     "electron-localshortcut": "3.1.0",
     "fs": "0.0.1-security",
     "path": "0.12.7",
-    "snyk": "^1.278.2"
+    "snyk": "^1.290.1"
   },
   "description": "Unofficial Desktop Client for Google Hangouts Chat for Teams.",
   "devDependencies": {
     "electron": "5.0.3",
-    "electron-builder": "21.2.0"
+    "electron-builder": "22.3.0"
   },
   "keywords": [],
   "license": "MIT",
