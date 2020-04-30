@@ -39,7 +39,7 @@
     "electron-localshortcut": "3.1.0",
     "fs": "0.0.1-security",
     "path": "0.12.7",
-    "snyk": "^1.290.1"
+    "snyk": "^1.316.1"
   },
   "description": "Unofficial Desktop Client for Google Hangouts Chat for Teams.",
   "devDependencies": {
@@ -60,7 +60,7 @@
     "dist": "DEBUG=electron-builder electron-builder",
     "lint": "echo \"No linting configured\"",
     "pack": "electron-builder --dir",
-    "prepublish": "npm run snyk-protect",
+    "prepublish": "yarn run snyk-protect",
     "release": "DEBUG=electron-builder electron-builder publish",
     "snyk-protect": "snyk protect",
     "start": "npx electron src/index.js",
