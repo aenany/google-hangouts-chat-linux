@@ -79,7 +79,7 @@ The binaries will output to the `dist/` folder.
 ## GitHub
 Set the `GH_TOKEN` environment variable, then run `GH_TOKEN=$GH_TOKEN yarn release` to publish a new version of the software as a draft to your repository.
 
-## Built With
+# Built With
 
 * [Node.js](https://nodejs.org) - JavaScript runtime environment
 * [Yarn](https://yarnpkg.com/en/) - Fast, reliable, and secure dependency management for Node.js
@@ -89,25 +89,25 @@ Set the `GH_TOKEN` environment variable, then run `GH_TOKEN=$GH_TOKEN yarn relea
 * [electron-localshortcut](https://www.npmjs.com/package/electron-localshortcut) - Register keyboard shortcuts with Electron
 * [electron-context-menu](https://www.npmjs.com/package/electron-localshortcut) - Register keyboard shortcuts with Electron
 
-## Contributing
+# Contributing
 
 Please read [CONTRIBUTING.md](https://github.com/aenany/google-hangouts-chat-linux/blob/master/CONTRIBUTING.md) for the process for submitting pull requests to the project.
 
-## Versioning
+# Versioning
 
 This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/aenany/google-hangouts-chat-linux/project/tags). 
 
-## Authors
+# Authors
 
 * **A Enany** - *Initial work* - [aenany](https://github.com/aenany)
 
 See also the list of [contributors](https://github.com/aenany/google-hangouts-chat-linux/contributors) who participated in this project.
 
-## License
+# License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+# Acknowledgments
 
 * Inspired by the original project at https://github.com/robyf/google-chat-linux
 * [This awesome stackoverflow response for dark mode](https://stackoverflow.com/questions/4766201/javascript-invert-color-on-all-elements-of-a-page)
