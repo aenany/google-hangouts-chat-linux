@@ -43,7 +43,7 @@
   },
   "description": "Unofficial Desktop Client for Google Hangouts Chat for Teams.",
   "devDependencies": {
-    "electron": "8.5.1",
+    "electron": "10.4.1",
     "electron-builder": "22.3.0"
   },
   "keywords": [],
