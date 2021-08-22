@@ -39,7 +39,7 @@
     "electron-localshortcut": "3.1.0",
     "fs": "0.0.1-security",
     "path": "0.12.7",
-    "snyk": "^1.290.1"
+    "snyk": "^1.518.0"
   },
   "description": "Unofficial Desktop Client for Google Hangouts Chat for Teams.",
   "devDependencies": {
